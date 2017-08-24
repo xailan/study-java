@@ -9,5 +9,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 public @interface Factory {
 	public String id();
+
 	public Class<?> type();
+
+
 }
