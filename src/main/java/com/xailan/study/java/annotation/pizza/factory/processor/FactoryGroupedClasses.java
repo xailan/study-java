@@ -2,14 +2,18 @@ package com.xailan.study.java.annotation.pizza.factory.processor;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.EnumSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.annotation.processing.Filer;
+import javax.lang.model.element.Modifier;
+import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
 import javax.tools.JavaFileObject;
 
+import com.squareup.javawriter.JavaWriter;
 import com.xailan.study.java.annotation.pizza.factory.Factory;
 
 public class FactoryGroupedClasses {

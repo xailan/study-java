@@ -1,5 +1,6 @@
 package com.xailan.study.java.annotation.pizza.factory.processor;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -82,6 +83,17 @@ public class FactoryProcessor extends AbstractProcessor {
 				// 如果和其他的@Factory标注的类的id相同冲突，
 				// 抛出IdAlreadyUsedException异常
 				factoryClass.add(annotatedClass);
+
+				try {
+					for (FactoryGroupedClasses factoryClassz : factoryClasses.values()) {
+						factoryClassz.generateCode(elementUtils, filer);
+					}
+					// 清除factoryClasses
+					factoryClasses.clear();
+
+				} catch (IOException e) {
+					error(null, e.getMessage());
+				}
 				return true;
 
 			} catch (IllegalArgumentException e) {
